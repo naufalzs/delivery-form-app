@@ -35,3 +35,28 @@ export const FormContainer = styled.form`
   column-gap: 32px;
   row-gap: 10px;
 `;
+
+export const ChooserContainer = styled.div`
+  margin: 40px 0 56px 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 8px;
+`;
+
+export const FinishContainer = styled.div`
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+`;
+
+export const DropshipContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  p {
+    color: black;
+    font-size: 12px;
+  }
+`;

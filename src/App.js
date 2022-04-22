@@ -1,9 +1,11 @@
+import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { Container, MainContent } from "./components/styles/Container.styled";
 import { MainCard } from "./components/styles/MainCard.styled";
 import Stepper from "./components/Stepper/Index";
 import BackLink from "./components/BackLink";
 import ContentLeft from "./components/ContentLeft";
+import ContentRight from "./components/ContentRight";
 const theme = {
   colors: {
     blackSoft: "#00000090",
@@ -27,7 +29,8 @@ function App() {
           <Stepper />
           <BackLink />
           <MainContent>
-            <ContentLeft/>
+            <ContentLeft />
+            <ContentRight />
           </MainContent>
         </MainCard>
       </Container>
