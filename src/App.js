@@ -3,6 +3,7 @@ import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { Container } from "./components/styles/Container.styled";
 import { MainCard } from "./components/styles/MainCard.styled";
+import Stepper from "./components/Stepper/Index";
 const theme = {
   colors: {
     blackSoft: "#00000090",
@@ -22,7 +23,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <MainCard></MainCard>
+        <MainCard>
+          <Stepper/>
+        </MainCard>
       </Container>
     </ThemeProvider>
   );
