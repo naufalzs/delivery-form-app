@@ -1,6 +1,7 @@
 import React from "react";
+import Input from "./Input";
 import { FormContainer } from "./styles/Container.styled";
-import { InputStyled, TextareaStyled } from "./styles/Input.styled";
+import TextArea from "./TextArea";
 import Title from "./Title";
 
 export default function Step1() {
@@ -8,11 +9,11 @@ export default function Step1() {
     <>
       <Title textTitle="Delivery details" checkbox />
       <FormContainer>
-        <InputStyled placeholder="Email" />
-        <InputStyled placeholder="Dropshipper name" />
-        <InputStyled placeholder="Phone Number" />
-        <InputStyled placeholder="Dropshipper phone number" />
-        <TextareaStyled placeholder="Delivery Address" rows={4} />
+        <Input placeholder="Email" />
+        <Input placeholder="Dropshipper name" disabled />
+        <Input placeholder="Phone Number" />
+        <Input placeholder="Dropshipper phone number" />
+        <TextArea placeholder="Delivery Address" />
       </FormContainer>
     </>
   );

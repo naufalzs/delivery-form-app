@@ -1,5 +1,6 @@
 import React from "react";
-import { DropshipCheckbox, DropshipContainer } from "./styles/Dropship.styled";
+import Checkbox from "./Checkbox";
+import { DropshipContainer } from "./styles/Container.styled";
 import { TitleContainer, TitleShadow, TitleText } from "./styles/Title.styled";
 
 export default function Title({ textTitle, checkbox }) {
@@ -10,7 +11,7 @@ export default function Title({ textTitle, checkbox }) {
         <TitleText>{textTitle}</TitleText>
         {checkbox && (
           <DropshipContainer>
-            <DropshipCheckbox />
+            <Checkbox />
             <p>Send as dropshipper</p>
           </DropshipContainer>
         )}
