@@ -1,6 +1,6 @@
 import { createStore } from "redux";
-import stepReducer from "./step/stepReducer";
+import rootReducer from "./rootReducer";
 
-const jakstore = createStore(stepReducer);
+const jakstore = createStore(rootReducer);
 
 export default jakstore;

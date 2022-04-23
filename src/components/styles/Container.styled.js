@@ -8,9 +8,20 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const MainCard = styled.div`
+  height: 510px;
+  max-height: 550px;
+  width: 948px;
+  position: relative;
+  background-color: #ffffff;
+  padding: 20px 20px 20px 32px;
+  box-shadow: 0 8px 10px #ff8a0010, 0 8px 10px #ff8a0010, 5px 0 30px #ff8a0005,
+    -5px 0 30px #ff8a0005;
+`;
+
 export const MainContent = styled.div`
   height: 85%;
-  margin-top: 32px;
+  margin-top: ${({ extraMargin }) => extraMargin ? "82px" : "32px"};
   display: grid;
   grid-template-columns: 70% auto;
 `;

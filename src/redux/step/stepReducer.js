@@ -18,14 +18,14 @@ const stepReducer = (state = initialState, action) => {
       }
     case PREV_STEP:
       if (state.activeStep !== 1) {
-        return {
-          activeStep: state.activeStep - 1,
-        };
-      } else {
-        return {
-          activeStep: 3,
-        };
+        if (state.activeStep === 3) {
+          return { activeStep: 1 };
+        } else
+          return {
+            activeStep: state.activeStep - 1,
+          };
       }
+      break;
     default: {
       return state;
     }

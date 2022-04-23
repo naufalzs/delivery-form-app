@@ -52,7 +52,7 @@ export const OptionPrice = styled.div`
 `;
 
 export const TotalPrice = styled.div`
-  margin: 24px 0;
+  margin: ${({ step }) => (step === 3 ? "24px 0 12px 0" : "24px 0")};
   font-weight: bold;
   font-size: 24px;
   color: ${({ theme }) => theme.colors.orange};

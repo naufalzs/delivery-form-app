@@ -34,18 +34,20 @@ export const InputStyled = styled.input`
 
 export const Placeholder = styled.div`
   position: absolute;
-  display: ${({ value, focus }) =>
-    value === "" ? "block" : focus ? "block" : "none"};
+  /* display: ${({ value, focus }) =>
+    value === "" ? "block" : focus ? "block" : "none"}; */
   left: 14px;
-  font-size: ${({ focus }) => (focus ? "12px" : "16px")};
-  font-weight: ${({ focus }) => (focus ? "700" : "400")};
-  color: ${({ theme, focus, error }) =>
+  font-size: ${({ focus, value }) => (focus || value ? "12px" : "16px")};
+  font-weight: ${({ focus, value }) => (focus || value ? "700" : "400")};
+  color: ${({ theme, focus, error, disabled }) =>
     focus
       ? error
         ? theme.colors.orange
         : theme.colors.green
+      : disabled
+      ? theme.colors.grayDisabled
       : theme.colors.blackTransparent};
-  top: ${({ focus }) => (focus ? "6px" : "16px")};
+  top: ${({ focus, value }) => (focus || value ? "6px" : "16px")};
   transition: 0.2s ease all;
 `;
 
@@ -92,4 +94,10 @@ export const LetterCount = styled.div`
       ? theme.colors.orange
       : theme.colors.green};
   transition: 0.2s ease all;
+`;
+
+export const ErrorText = styled.p`
+  margin-top: 2px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.red};
 `;

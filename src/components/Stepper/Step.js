@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowStep, CircleStep, TextStep } from "../styles/Stepper.styled";
 
-export default function StepStepper({ num, text, active, noArrow }) {
+export default function Stepper({ num, text, active, noArrow }) {
   return (
     <>
       <CircleStep active={active}>

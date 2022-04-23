@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Checkmark } from "@styled-icons/evaicons-solid/Checkmark";
+import {Checkmark} from "@styled-icons/evaicons-solid/Checkmark"
 
 export const CheckboxContainer = styled.div`
   width: 14px;

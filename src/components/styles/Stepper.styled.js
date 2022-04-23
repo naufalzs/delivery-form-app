@@ -38,6 +38,7 @@ export const TextStep = styled.p`
   margin-left: 12px;
   color: ${({ theme }) => theme.colors.orange};
   font-size: 18px;
+  /* line-height: 28px; */
 `;
 
 export const ArrowStep = styled(KeyboardArrowRight)`

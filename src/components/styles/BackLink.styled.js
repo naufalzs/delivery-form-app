@@ -6,6 +6,7 @@ export const BackLinkContainer = styled.div`
   align-items: center;
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.blackSoft};
+  cursor: pointer;
   p {
     font-size: 14px;
   }

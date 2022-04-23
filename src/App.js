@@ -1,11 +1,16 @@
-import "./App.css";
+import { useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { Container, MainContent } from "./components/styles/Container.styled";
-import { MainCard } from "./components/styles/MainCard.styled";
-import Stepper from "./components/Stepper/Index";
+import "./App.css";
 import BackLink from "./components/BackLink";
 import ContentLeft from "./components/ContentLeft";
 import ContentRight from "./components/ContentRight";
+import Stepper from "./components/Stepper/Index";
+import {
+  Container,
+  MainCard,
+  MainContent,
+} from "./components/styles/Container.styled";
+
 const theme = {
   colors: {
     blackSoft: "#00000090",
@@ -18,18 +23,23 @@ const theme = {
     grayDisabled: "#C9C9C9",
     green: "#1BD97B",
     greenTransparent: "#1BD97B30",
+    red: "#EF4444",
   },
 };
 
 function App() {
+  const globalState = useSelector((state) => state);
+  const activeStep = useSelector((state) => state.step.activeStep);
+  // console.log(globalState);
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <MainCard>
           <Stepper />
-          <BackLink />
-          <MainContent>
-            <ContentLeft />
+          {activeStep !== 3 && <BackLink />}
+          {/* <BackLink /> */}
+          <MainContent extraMargin={activeStep === 3}>
+          <ContentLeft />
             <ContentRight />
           </MainContent>
         </MainCard>

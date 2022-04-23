@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { checkDropship, setButton } from "../redux/user/userAction";
 import { CheckboxContainer, CheckIconCheckbox } from "./styles/Checkbox.styled";
 
 export default function Checkbox() {
-  const [checked, setChecked] = useState(false);
+  const formState = useSelector((state) => state.user.form);
+  const checked = useSelector((state) => state.user.dropship);
+  const dispatch = useDispatch();
+
+  const handleCheckbox = () => dispatch(checkDropship(!checked));
+  useEffect(() => {
+    if (checked) {
+      dispatch(setButton(false));
+    } else {
+      if (formState.email && formState.phone_number && formState.address)
+        dispatch(setButton(true));
+    }
+  }, [checked]);
+
   return (
-    <CheckboxContainer
-      onClick={() => {
-        setChecked(!checked);
-      }}
-      checked={checked}
-    >
+    <CheckboxContainer onClick={handleCheckbox} checked={checked}>
       <CheckIconCheckbox checked={checked} />
     </CheckboxContainer>
   );
