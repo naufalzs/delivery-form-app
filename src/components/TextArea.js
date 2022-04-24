@@ -54,13 +54,13 @@ const TextArea = ({
               setFocus(true);
               if (value.length <= wordLimit) {
                 setError(false);
+                setErrorInput("");
               }
             }}
             onBlur={() => focus && setFocus(false)}
             value={value}
             name={name}
             {...register(name, {
-              // maxLength: 100,
               onChange: (e) => {
                 textAreaValidation(e.target.value);
               },

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonNext } from "./styles/Button.styled";
 import { ContentRightStyled } from "./styles/Container.styled";
@@ -16,7 +16,6 @@ import {
   genOrderID,
   setButton,
 } from "../redux/user/userAction";
-import RandExp from "randexp";
 
 export default function ContentRight() {
   const activeStep = useSelector((state) => state.step.activeStep);
@@ -37,21 +36,16 @@ export default function ContentRight() {
   const dropshipFee = 5900;
   const totalFee = costGoods + (dropship ? dropshipFee : 0) + (courierFee || 0);
 
-  // const [nextButton, setNextButton] = useState(buttonNextState);
   const dispatch = useDispatch();
-
   const handleNextButton = () => {
     if (activeStep === 2) {
       dispatch(genOrderID());
     }
     dispatch(nextStep());
   };
-  // console.log(buttonNextState);
-  // console.log(nextButton)
 
   useEffect(() => {
     if (choosenPayment) {
-      // setNextButton(true);
       dispatch(setButton(true));
     }
   }, [choosenPayment]);

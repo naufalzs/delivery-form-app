@@ -1,4 +1,3 @@
-import RandExp from "randexp";
 import React from "react";
 import { useSelector } from "react-redux";
 import BackLink from "./BackLink";

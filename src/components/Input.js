@@ -18,9 +18,7 @@ const Input = ({
   dropship,
   defaultValues,
 }) => {
-  // console.log(errorMessage);
   const [focus, setFocus] = useState(false);
-  // const [error, setError] = useState(errorMessage ? true : false);
   const [error, setError] = useState(false);
   const [value, setValue] = useState(defaultValues[name] || "");
 
@@ -59,7 +57,6 @@ const Input = ({
           <InputStyled
             onFocus={() => setFocus(true)}
             onBlur={() => focus && setFocus(false)}
-            // value={dropship}
             value={name.includes("dropship") && !dropship ? "" : value}
             onChange={(e) => setValue(e.target.value)}
             disabled={disabled}

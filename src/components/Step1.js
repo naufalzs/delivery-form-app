@@ -22,7 +22,10 @@ export default function Step1() {
       .required("email required"),
     phone_number: yup
       .string()
-      .required("phone number required"),
+      .required("phone number required")
+      .matches(/^[0-9-+()]*$/, "phone number not valid")
+      .min(6, "must between 6 - 20 digits")
+      .max(20, "must between 6 - 20 digits"),
     address: yup.string().required("address required"),
   });
 
@@ -33,14 +36,18 @@ export default function Step1() {
       .required("email required"),
     phone_number: yup
       .string()
+      .required("phone number required")
       .matches(/^[0-9-+()]*$/, "phone number not valid")
-      .required("phone required"),
+      .min(6, "must between 6 - 20 digits")
+      .max(20, "must between 6 - 20 digits"),
     address: yup.string().required("address required"),
     dropshipper_name: yup.string().required("dropshipper name required"),
     dropshipper_phone_number: yup
       .string()
+      .required("phone number required")
       .matches(/^[0-9-+()]*$/, "phone number not valid")
-      .required("dropshipper number required"),
+      .min(6, "must between 6 - 20 digits")
+      .max(20, "must between 6 - 20 digits"),
   });
 
   const defaultValues = {
@@ -49,7 +56,7 @@ export default function Step1() {
     address: formState?.address || "",
     dropshipper_name: formState?.dropshipper_name || "",
     dropshipper_phone_number: formState?.dropshipper_phone_number || "",
-  } ;
+  };
   const {
     register,
     handleSubmit,
@@ -59,9 +66,7 @@ export default function Step1() {
       !dropshipState ? formValidation : formValidationDropship
     ),
     mode: "all",
-    // defaultValues,
   });
-  // console.log(errors, isValid);
 
   useEffect(() => {
     if (isValid) {
@@ -69,7 +74,7 @@ export default function Step1() {
     } else {
       dispatch(setButton(false));
     }
-  }, [isValid, dispatch]);
+  }, [isValid]);
 
   const onSubmit = (data) => {
     dispatch(fillForm(data));

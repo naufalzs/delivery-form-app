@@ -22,9 +22,6 @@ export default function ContentLeft() {
   return (
     <ContentLeftStyled>
       {contentLeftSelector()}
-      {/* <Step1 /> */}
-      {/* <Step2/> */}
-      {/* <Step3/> */}
     </ContentLeftStyled>
   );
   //   return <ContentLeftStyled>{contentLeftSelector()}</ContentLeftStyled>;
