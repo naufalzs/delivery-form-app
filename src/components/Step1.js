@@ -18,8 +18,8 @@ export default function Step1() {
   const formValidation = yup.object().shape({
     email: yup
       .string()
-      .email("email format not valid")
-      .required("email required"),
+      .required("email required")
+      .email("email format not valid"),
     phone_number: yup
       .string()
       .required("phone number required")
@@ -32,8 +32,8 @@ export default function Step1() {
   const formValidationDropship = yup.object().shape({
     email: yup
       .string()
-      .email("email format not valid")
-      .required("email required"),
+      .required("email required")
+      .email("email format not valid"),
     phone_number: yup
       .string()
       .required("phone number required")
