@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# siCekout (Simple Checkout Form App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Description](#description)
+- [Initial Setup](#initial-setup)
+- [Running Development Environment](#running-development-environment)
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+### Abstract
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+siCekout is a web application that can facilitate e-commerce website to register user data for checkout requirement. It makes registering checkout form simple, easy, and convenient for both user and company.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+There are three main flow here, Delivery form, Shipment/Payment selector, and Summary details. In delivery form, user provided by input which validate on realtime, so its make registering data very convenient for user, it also provide dropshipper option to accomodate e-commerce which provide dropship feature. Next step is shipment/payment selector, which show selected list of shipment/payment with detail. It make company ease to manage the list to only show company partners, and also it help user to choose the best option for them. Last step is summary details which showing user the summarize version of the form they register. It ease user to double check their options and got details of total price they must pay.
 
-### `yarn test`
+### Feature
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are six siCekout main features here:
 
-### `yarn build`
+1. Realtime validation input.
+2. Dropshipper option.
+3. Integrated selector (for shipment/payment).
+4. Realtime details summary (shipment/payment/dropship choosen and total price).
+5. Order id generator.
+6. Persisted state in local storage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Initial Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project use ReactJS, Styled Components, React Hooks Form, Redux, and many libraries included. You need to install the required
+dependencies prior to testing, building or contributing to the project.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running Development Environment
 
-### `yarn eject`
+To install dependencies the server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+yarn install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+yarn dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can see the app running by going to `http://localhost:3020/` via your browser.
