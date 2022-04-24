@@ -23,13 +23,15 @@ export default function BackLink() {
 
   return (
     <>
-        <BackLinkContainer >
-          <ArrowBackLink onClick={() => {
-          activeStep===3 && dispatch(resetForm())
-          dispatch(prevStep())
-        }}/>
-          <p>{handleTextBacklink()}</p>
-        </BackLinkContainer>
+      <BackLinkContainer
+        onClick={() => {
+          activeStep === 3 && dispatch(resetForm());
+          dispatch(prevStep());
+        }}
+      >
+        <ArrowBackLink />
+        <p>{handleTextBacklink()}</p>
+      </BackLinkContainer>
     </>
   );
 }

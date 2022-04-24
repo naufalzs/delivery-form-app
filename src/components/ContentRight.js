@@ -48,7 +48,7 @@ export default function ContentRight() {
     if (choosenPayment) {
       dispatch(setButton(true));
     }
-  }, [choosenPayment]);
+  }, [choosenPayment, activeStep, dispatch]);
 
   const handleTextButton = () => {
     switch (activeStep) {
@@ -76,7 +76,7 @@ export default function ContentRight() {
           <h2>Summary</h2>
           <p>10 items purchased</p>
         </SummaryInfo>
-        {choosenShipment && (
+        {choosenShipment && activeStep > 1 && (
           <>
             <SummarySeparator />
             <OptionDetails>

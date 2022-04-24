@@ -74,7 +74,7 @@ export default function Step1() {
     } else {
       dispatch(setButton(false));
     }
-  }, [isValid]);
+  }, [isValid, dispatch]);
 
   const onSubmit = (data) => {
     dispatch(fillForm(data));

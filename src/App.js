@@ -31,7 +31,7 @@ const theme = {
 };
 
 function App() {
-  const globalState = useSelector((state) => state);
+  // const globalState = useSelector((state) => state);
   const activeStep = useSelector((state) => state.step.activeStep);
   // console.log(globalState);
   return (

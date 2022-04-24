@@ -18,7 +18,7 @@ export default function Checkbox() {
           dispatch(setButton(true));
       }
     }
-  }, [checked]);
+  }, [checked, dispatch, formState]);
 
   return (
     <CheckboxContainer onClick={handleCheckbox} checked={checked}>
