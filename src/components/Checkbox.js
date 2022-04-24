@@ -13,10 +13,11 @@ export default function Checkbox() {
     if (checked) {
       dispatch(setButton(false));
     } else {
-      if (formState !== "") {
-        if (formState?.email && formState?.phone_number && formState?.address)
-          dispatch(setButton(true));
-      }
+      // ini gabisa dipake karena ini cuma baca state yang udah di submit
+      // if (formState !== "") {
+      //   if (formState?.email && formState?.phone_number && formState?.address)
+      //     dispatch(setButton(true));
+      // }
     }
   }, [checked, dispatch, formState]);
 

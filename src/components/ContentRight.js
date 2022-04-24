@@ -45,10 +45,13 @@ export default function ContentRight() {
   };
 
   useEffect(() => {
-    if (choosenPayment) {
+    // if (activeStep === 1 && !dropship) {
+    //   dispatch(setButton(true));
+    // }
+    if (activeStep === 2 && choosenPayment) {
       dispatch(setButton(true));
     }
-  }, [choosenPayment, activeStep, dispatch]);
+  }, [choosenPayment, dropship, activeStep, dispatch]);
 
   const handleTextButton = () => {
     switch (activeStep) {

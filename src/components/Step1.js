@@ -60,6 +60,7 @@ export default function Step1() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(
@@ -68,13 +69,25 @@ export default function Step1() {
     mode: "all",
   });
 
+  // console.log(watch(watchList).filter((item) => item !== "").length === 0);
+
   useEffect(() => {
     if (isValid) {
       dispatch(setButton(true));
     } else {
       dispatch(setButton(false));
     }
-  }, [isValid, dispatch]);
+    const watchList = ["email", "phone_number", "address"];
+    if (
+      !dropshipState &&
+      watch(watchList).filter((item) => item !== "").length === 3
+    ) {
+      dispatch(setButton(true));
+    }else{
+      dispatch(setButton(false));
+
+    }
+  }, [isValid, dispatch, dropshipState, watch]);
 
   const onSubmit = (data) => {
     dispatch(fillForm(data));
