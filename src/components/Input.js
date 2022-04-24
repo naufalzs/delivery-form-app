@@ -23,16 +23,22 @@ const Input = ({
   const [value, setValue] = useState(defaultValues[name] || "");
 
   useEffect(() => {
-    if (value === "" || errorMessage) {
+    if (errorMessage) {
       setError(true);
     } else {
       setError(false);
     }
-  }, [value, errorMessage, focus]);
-
+  }, [errorMessage]);
   return (
     <div>
-      <InputContainer focus={focus} error={error} disabled={disabled}>
+      <InputContainer
+        focus={focus}
+        error={error}
+        disabled={disabled}
+        onBlur={() => {
+          focus && setFocus(false);
+        }}
+      >
         <Placeholder
           focus={focus}
           error={error}
@@ -44,8 +50,11 @@ const Input = ({
         {register ? (
           <InputStyled
             onFocus={() => setFocus(true)}
-            onBlur={() => focus && setFocus(false)}
-            value={name.includes("dropship") && !dropship ? "" : value}
+            value={
+              name.includes("dropship") && !dropship
+                ? ""
+                : value
+            }
             disabled={disabled}
             name={name}
             type={type}
@@ -56,7 +65,6 @@ const Input = ({
         ) : (
           <InputStyled
             onFocus={() => setFocus(true)}
-            onBlur={() => focus && setFocus(false)}
             value={name.includes("dropship") && !dropship ? "" : value}
             onChange={(e) => setValue(e.target.value)}
             disabled={disabled}
@@ -70,7 +78,9 @@ const Input = ({
           <ErrorIconInput focus={focus} error={error} />
         )}
       </InputContainer>
-      <ErrorText>{errorMessage}</ErrorText>
+      <ErrorText>
+        {name.includes("dropship") && !dropship ? "" : errorMessage}
+      </ErrorText>
     </div>
   );
 };

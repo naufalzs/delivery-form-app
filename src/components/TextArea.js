@@ -26,11 +26,11 @@ const TextArea = ({
     if (inputValue?.length <= wordLimit) {
       setValue(inputValue);
       setError(false);
-      setErrorInput("")
+      setErrorInput("");
     } else {
       setValue(value);
       setError(true);
-      setErrorInput("you reached word limit")
+      setErrorInput("you reached word limit");
     }
   };
 
@@ -44,7 +44,11 @@ const TextArea = ({
 
   return (
     <div>
-      <InputContainer focus={focus} error={error}>
+      <InputContainer
+        focus={focus}
+        error={error}
+        onBlur={() => focus && setFocus(false)}
+      >
         <Placeholder focus={focus} error={error} value={value}>
           {placeholder}
         </Placeholder>
@@ -57,7 +61,6 @@ const TextArea = ({
                 setErrorInput("");
               }
             }}
-            onBlur={() => focus && setFocus(false)}
             value={value}
             name={name}
             {...register(name, {

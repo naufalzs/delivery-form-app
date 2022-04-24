@@ -5,50 +5,18 @@ import { FormContainer } from "./styles/Container.styled";
 import TextArea from "./TextArea";
 import Title from "./Title";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { fillForm, setButton } from "../redux/user/userAction";
 import { nextStep } from "../redux/step/stepAction";
+import {
+  formValidation,
+  formValidationDropship,
+} from "../utils/ValidationSchema";
 
 export default function Step1() {
   const formState = useSelector((state) => state.user.form);
   const dropshipState = useSelector((state) => state.user.dropship);
   const dispatch = useDispatch();
-
-  const formValidation = yup.object().shape({
-    email: yup
-      .string()
-      .required("email required")
-      .email("email format not valid"),
-    phone_number: yup
-      .string()
-      .required("phone number required")
-      .matches(/^[0-9-+()]*$/, "phone number not valid")
-      .min(6, "must between 6 - 20 digits")
-      .max(20, "must between 6 - 20 digits"),
-    address: yup.string().required("address required"),
-  });
-
-  const formValidationDropship = yup.object().shape({
-    email: yup
-      .string()
-      .required("email required")
-      .email("email format not valid"),
-    phone_number: yup
-      .string()
-      .required("phone number required")
-      .matches(/^[0-9-+()]*$/, "phone number not valid")
-      .min(6, "must between 6 - 20 digits")
-      .max(20, "must between 6 - 20 digits"),
-    address: yup.string().required("address required"),
-    dropshipper_name: yup.string().required("dropshipper name required"),
-    dropshipper_phone_number: yup
-      .string()
-      .required("phone number required")
-      .matches(/^[0-9-+()]*$/, "phone number not valid")
-      .min(6, "must between 6 - 20 digits")
-      .max(20, "must between 6 - 20 digits"),
-  });
 
   const defaultValues = {
     email: formState?.email || "",
@@ -57,10 +25,11 @@ export default function Step1() {
     dropshipper_name: formState?.dropshipper_name || "",
     dropshipper_phone_number: formState?.dropshipper_phone_number || "",
   };
+
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(
@@ -68,29 +37,26 @@ export default function Step1() {
     ),
     mode: "all",
   });
-  // const watchList = ["email", "phone_number", "address"];
-  console.log(watch());
 
   useEffect(() => {
-    const watchList = ["email", "phone_number", "address"];
-    if (
-      !dropshipState &&
-      watch(watchList).filter((item) => item !== "").length === 3
-    ) {
-      dispatch(setButton(true));
-    } else {
-      dispatch(setButton(false));
-    }
-
     if (isValid) {
+      console.log("3 1");
       dispatch(setButton(true));
     } else {
+      console.log("3 2");
       dispatch(setButton(false));
     }
-  }, [dispatch, dropshipState, watch, isValid]);
-
+  }, [dispatch, dropshipState, isValid]);
   const onSubmit = (data) => {
-    dispatch(fillForm(data));
+    const formSubmitDropship = {
+      ...data,
+      dropshipper_name: "",
+      dropshipper_phone_number: "",
+    };
+    console.log(data, formSubmitDropship)
+    dispatch(fillForm(dropshipState? formSubmitDropship : data));
+    // console.log(data)
+    // dispatch(fillForm(data))
     dispatch(setButton(false));
     dispatch(nextStep());
   };
