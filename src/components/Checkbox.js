@@ -13,8 +13,10 @@ export default function Checkbox() {
     if (checked) {
       dispatch(setButton(false));
     } else {
-      if (formState.email && formState.phone_number && formState.address)
-        dispatch(setButton(true));
+      if (formState !== "") {
+        if (formState?.email && formState?.phone_number && formState?.address)
+          dispatch(setButton(true));
+      }
     }
   }, [checked]);
 

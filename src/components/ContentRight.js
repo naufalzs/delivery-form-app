@@ -29,8 +29,9 @@ export default function ContentRight() {
     provider: courier,
     timeEstimation: timeDelivery,
     fee: courierFee,
-  } = choosenShipment;
-  const { provider: bank } = choosenPayment;
+  } = choosenShipment || {};
+
+  const { provider: bank } = choosenPayment || {};
 
   const costGoods = 500000;
   const dropshipFee = 5900;
@@ -76,7 +77,7 @@ export default function ContentRight() {
 
   return (
     <ContentRightStyled>
-      <div>
+      <div id="content-right-top">
         <SummaryInfo>
           <h2>Summary</h2>
           <p>10 items purchased</p>
@@ -92,21 +93,18 @@ export default function ContentRight() {
             </OptionDetails>
           </>
         )}
-        {choosenShipment && (
+        {activeStep === 3 && (
           <>
             <SummarySeparator />
             <OptionDetails>
               <h3>Payment Method</h3>
               <p>{bank}</p>
             </OptionDetails>
+            <SummarySeparator />
           </>
         )}
-        {/* <OptionDetails>
-          <h3>Delivery Estimation</h3>
-          <p>today by GO-SEND</p>
-        </OptionDetails> */}
       </div>
-      <div>
+      <div id="content-right-bottom">
         <OptionPrice>
           <p>Cost of goods</p>
           <p>
@@ -149,13 +147,6 @@ export default function ContentRight() {
             </p>
           </OptionPrice>
         )}
-
-        {/* <OptionPrice>
-          <p>
-            <span>JNE</span> Shipment
-          </p>
-          <p>9,000</p>
-        </OptionPrice> */}
         <TotalPrice step={activeStep}>
           <p>Total</p>
           <p>
@@ -167,9 +158,7 @@ export default function ContentRight() {
               className="font-bold"
             />
           </p>
-          {/* <p>505,999</p> */}
         </TotalPrice>
-        {/* <ButtonNext>Continue to Payment</ButtonNext> */}
         {activeStep !== 3 && (
           <ButtonNext
             type={activeStep === 1 ? "submit" : "button"}

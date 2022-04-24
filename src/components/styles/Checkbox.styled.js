@@ -12,7 +12,6 @@ export const CheckboxContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
 `;
 
 export const CheckIconCheckbox = styled(Checkmark)`

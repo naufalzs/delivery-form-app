@@ -12,13 +12,23 @@ export const SummaryInfo = styled.div`
     color: ${({ theme }) => theme.colors.blackTransparent};
     font-size: 12px;
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    margin-bottom: 12px;
+    p {
+      margin-top: 0px;
+      font-size: 12px;
+    }
+  }
 `;
 
 export const SummarySeparator = styled.div`
   margin: 16px 0;
-  width: 70px;
+  width: 75px;
   height: 2px;
   background-color: ${({ theme }) => theme.colors.gray};
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+   width : 160px;
+  }
 `;
 
 export const OptionDetails = styled.div`
@@ -48,6 +58,9 @@ export const OptionPrice = styled.div`
     span {
       font-weight: bold;
     }
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+  font-size: 14px;
   }
 `;
 

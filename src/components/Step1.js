@@ -22,7 +22,6 @@ export default function Step1() {
       .required("email required"),
     phone_number: yup
       .string()
-      .matches(/^[0-9-+()]*$/, "phone number not valid")
       .required("phone number required"),
     address: yup.string().required("address required"),
   });
@@ -50,7 +49,7 @@ export default function Step1() {
     address: formState?.address || "",
     dropshipper_name: formState?.dropshipper_name || "",
     dropshipper_phone_number: formState?.dropshipper_phone_number || "",
-  };
+  } ;
   const {
     register,
     handleSubmit,
@@ -70,7 +69,7 @@ export default function Step1() {
     } else {
       dispatch(setButton(false));
     }
-  }, [isValid]);
+  }, [isValid, dispatch]);
 
   const onSubmit = (data) => {
     dispatch(fillForm(data));

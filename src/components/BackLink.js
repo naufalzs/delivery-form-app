@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { prevStep } from "../redux/step/stepAction";
+import { resetForm } from "../redux/user/userAction";
 import { ArrowBackLink, BackLinkContainer } from "./styles/BackLink.styled";
 
 export default function BackLink() {
@@ -22,8 +23,11 @@ export default function BackLink() {
 
   return (
     <>
-        <BackLinkContainer onClick={() => dispatch(prevStep())}>
-          <ArrowBackLink />
+        <BackLinkContainer >
+          <ArrowBackLink onClick={() => {
+          activeStep===3 && dispatch(resetForm())
+          dispatch(prevStep())
+        }}/>
           <p>{handleTextBacklink()}</p>
         </BackLinkContainer>
     </>

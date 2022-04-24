@@ -11,7 +11,9 @@ export const ButtonNext = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  /* color: white; */
   color: ${({ theme, disableStyle }) =>
-    disableStyle ? theme.colors.grayDisabled : "white"}; ;
+    disableStyle ? theme.colors.grayDisabled : "white"};
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 16px;
+  }
 `;

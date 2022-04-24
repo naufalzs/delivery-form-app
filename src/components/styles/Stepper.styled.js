@@ -7,6 +7,9 @@ export const StepperPosition = styled.div`
   width: 942px;
   display: flex;
   justify-content: center;
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const StepperContainer = styled.div`

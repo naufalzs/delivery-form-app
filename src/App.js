@@ -25,6 +25,9 @@ const theme = {
     greenTransparent: "#1BD97B30",
     red: "#EF4444",
   },
+  media: {
+    mobile: "768px",
+  },
 };
 
 function App() {
@@ -37,9 +40,8 @@ function App() {
         <MainCard>
           <Stepper />
           {activeStep !== 3 && <BackLink />}
-          {/* <BackLink /> */}
           <MainContent extraMargin={activeStep === 3}>
-          <ContentLeft />
+            <ContentLeft />
             <ContentRight />
           </MainContent>
         </MainCard>
