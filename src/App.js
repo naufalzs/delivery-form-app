@@ -33,7 +33,7 @@ const theme = {
 function App() {
   // const globalState = useSelector((state) => state);
   const activeStep = useSelector((state) => state.step.activeStep);
-  // console.log(globalState);
+  // console.log(globalState.user.form);
   return (
     <ThemeProvider theme={theme}>
       <Container>

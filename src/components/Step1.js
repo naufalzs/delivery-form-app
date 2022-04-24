@@ -40,23 +40,19 @@ export default function Step1() {
 
   useEffect(() => {
     if (isValid) {
-      console.log("3 1");
       dispatch(setButton(true));
     } else {
-      console.log("3 2");
       dispatch(setButton(false));
     }
   }, [dispatch, dropshipState, isValid]);
+
   const onSubmit = (data) => {
     const formSubmitDropship = {
       ...data,
-      dropshipper_name: "",
-      dropshipper_phone_number: "",
+      dropshipper_name: undefined,
+      dropshipper_phone_number: undefined,
     };
-    console.log(data, formSubmitDropship)
-    dispatch(fillForm(dropshipState? formSubmitDropship : data));
-    // console.log(data)
-    // dispatch(fillForm(data))
+    dispatch(fillForm(dropshipState ? formSubmitDropship : data));
     dispatch(setButton(false));
     dispatch(nextStep());
   };

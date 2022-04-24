@@ -45,9 +45,6 @@ export default function ContentRight() {
   };
 
   useEffect(() => {
-    // if (activeStep === 1 && !dropship) {
-    //   dispatch(setButton(true));
-    // }
     if (activeStep === 2 && choosenPayment) {
       dispatch(setButton(true));
     }
